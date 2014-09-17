@@ -27,9 +27,14 @@ class CustomTextInput(TextInput):
 
 class AndroidClient(App):
     def build(self):
+	self.freetextstate = FreeTextState()
 	self.endstate = EndState()
+	self.choicestate = ChoiceState()
 	root = MyScreenManager()
+	root.add_widget(self.freetextstate)
 	root.add_widget(self.endstate)
+	root.add_widget(self.choicestate)
+	root.current = 'freetextstate'
 	return root
 
 if __name__ == "__main__":
