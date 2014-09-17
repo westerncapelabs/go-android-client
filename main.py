@@ -2,6 +2,9 @@ from kivy.app import App
 
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+class FreeTextState(Screen):
+	pass
+
 class EndState(Screen):
 	pass
 
