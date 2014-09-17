@@ -11,6 +11,9 @@ class FreeTextState(Screen):
 class EndState(Screen):
 	pass
 
+class ChoiceState(Screen):
+	pass
+
 class MyScreenManager(ScreenManager):
 	pass
 

@@ -1,6 +1,7 @@
 MyScreenManager:
 	FreeTextState:
 	EndState:
+	ChoiceState:
 
 <FreeTextState>:
 	name: 'freetextstate'
@@ -68,3 +69,40 @@ MyScreenManager:
 			size_hint: 0.5, 0.5
 			size_hint_y: None
 			
+<ChoiceState>:
+	name: 'choicestate'
+	BoxLayout:
+		orientation: 'vertical'
+		pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+		size_hint: 1, 0.5
+		spacing: '15dp'
+		padding: '15dp'
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint_y: None
+			height: '48dp'
+			padding: '5dp'
+
+			canvas:
+				Color:
+					rgb: .3, .3, .3
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			Label:
+				text: 'Do you prefer tea or coffee?'
+				font_size: '20sp'
+
+		Button:
+			text: '1. Tea'
+			font_size: '18sp'
+			size_hint_y: None
+		Button:
+			text: '2. Coffee'
+			font_size: '18sp'
+			size_hint_y: None
+		Button:
+			text: '3. Neither'
+			font_size: '18sp'
+			size_hint_y: None
+
