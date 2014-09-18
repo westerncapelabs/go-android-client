@@ -45,16 +45,14 @@ MyScreenManager:
 	name: 'endstate'
 	BoxLayout:
 		orientation: 'vertical'
+		padding: '20dp'
+		spacing: 120
 		pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 		size_hint: 1, 0.6
-		spacing: '15dp'
-		padding: '20dp'
 		BoxLayout:
 			orientation: 'horizontal'
-			size_hint_y: None
-			height: '48dp'
 			padding: '5dp'
-
+			size_hint_y: 0.5	
 			canvas:
 				Color:
 					rgb: .3, .3, .3
@@ -62,17 +60,22 @@ MyScreenManager:
 					pos: self.pos
 					size: self.size
 			Label:
-				id: end_state_label
-				text: 'Thank you for registering!'
-				font_size: '20sp'
+				text: 'Thank you for registering sdja fadskf akdsf adkf adfk adsf jadskf adf adsf adsf adf kadf adf adf adsf adsf ad fads fad fk!'
+				text_size: self.size
+				halign: 'center'
+				valign: 'middle'
+			
+		AnchorLayout:
+			anchor_x: 'right'
+			anchor_y: 'bottom'
+			size_hint_y: 0.5		
+			Button:
+				text: 'FINISH'
+				font_size: '18sp'
+				size_hint: 0.5, 0.5
+				on_release: app.root.current = 'freetextstate'
 
-		Button:
-			text: 'FINISH'
-			font_size: '18sp'
-			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-			size_hint: 0.5, 0.5
-			size_hint_y: None
-			on_release: app.root.current = 'freetextstate'
+
 <ChoiceState>:
 	name: 'choicestate'
 	BoxLayout:
