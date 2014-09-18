@@ -17,6 +17,7 @@ class ChoiceState(Screen):
 class MyScreenManager(ScreenManager):
 	pass
 
+#function restricts textinput to 160 chars
 class CustomTextInput(TextInput):
 	max_chars = NumericProperty(160)
 
