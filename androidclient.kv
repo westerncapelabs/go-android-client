@@ -8,12 +8,11 @@ MyScreenManager:
 	BoxLayout:
 		orientation: 'vertical'
 		pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-		size_hint: 1, 0.5
+		size_hint: 1, 0.6
 		spacing: '15dp'
 		padding: '20dp'
 		BoxLayout:
-			orientation: 'horizontal'
-			size_hint_y: 0.5			
+			orientation: 'horizontal'						
 			padding: '5dp'
 
 			canvas:
@@ -32,12 +31,15 @@ MyScreenManager:
 			padding: '5dp'
 			hint_text: 'Enter text here'
 				
-		Button:
-			text: 'SEND'
-			font_size: '18sp'
-			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-			size_hint: 0.5, 0.5
-			on_release: app.root.current = 'choicestate'
+		AnchorLayout:
+			anchor_x: 'right'
+			anchor_y: 'center'
+			size_hint_y: 0.5		
+			Button:
+				text: 'SEND'
+				font_size: '18sp'
+				size_hint_x: 0.5
+				on_release: app.root.current = 'choicestate'
 
 <EndState>:
 	name: 'endstate'
