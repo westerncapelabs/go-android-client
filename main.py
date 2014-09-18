@@ -5,15 +5,19 @@ from kivy.properties import NumericProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.textinput import TextInput
 
+#freetextstate screen
 class FreeTextState(Screen):
 	pass
 
+#endstate screen
 class EndState(Screen):
 	pass
 
+#choicestate screen
 class ChoiceState(Screen):
 	pass
 
+#custom screenmanager
 class MyScreenManager(ScreenManager):
 	pass
 
@@ -28,9 +32,12 @@ class CustomTextInput(TextInput):
 
 class AndroidClient(App):
     def build(self):
+	#create screen instances
 	self.freetextstate = FreeTextState()
 	self.endstate = EndState()
 	self.choicestate = ChoiceState()
+
+	#load screen instances to screenManager & set current/active screen
 	root = MyScreenManager()
 	root.add_widget(self.freetextstate)
 	root.add_widget(self.endstate)
