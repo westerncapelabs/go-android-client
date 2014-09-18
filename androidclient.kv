@@ -10,7 +10,7 @@ MyScreenManager:
 		pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 		size_hint: 1, 0.5
 		spacing: '15dp'
-		padding: '15dp'
+		padding: '20dp'
 		BoxLayout:
 			orientation: 'horizontal'
 			size_hint_y: None
@@ -24,13 +24,15 @@ MyScreenManager:
 					pos: self.pos
 					size: self.size
 			Label:
-				text: 'What is your name?'
-				font_size: '20sp'
+				text: 'What is adf afkj af lj akj falj falfj aflj alfj alfj aflj aflj dfjalfj alfj jalfkj aflj aflkj falfj af your name afd af af fda fadsf adf adf af azf af af af?'
+				text_size: self.size
+				halign: 'center'
 		CustomTextInput:
 			font_size: '18sp'
 			padding: '5dp'
 			hint_text: 'Enter text here'
-			size_hint_x: 0.5		
+			size_hint_x: 0.5
+				
 		Button:
 			text: 'SEND'
 			font_size: '18sp'
