@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivy.lang import Builder
 
 from kivy.properties import NumericProperty
 
@@ -41,16 +42,8 @@ class CustomTextInput(TextInput):
 
 class AndroidClient(App):
     def build(self):
-	#create screen instances
-	self.freetextstate = FreeTextState()
-	self.endstate = EndState()
-	self.choicestate = ChoiceState()
 
-	#load screen instances to screenManager & set current/active screen
-	root = MyScreenManager()
-	root.add_widget(self.freetextstate)
-	root.add_widget(self.endstate)
-	root.add_widget(self.choicestate)
+	root = Builder.load_file('androidclient.kv')
 	root.current = 'freetextstate'
 	return root
 
