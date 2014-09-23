@@ -29,6 +29,13 @@ class ChoiceState(Screen):
 	label_text = StringProperty()
 	choices = ObjectProperty()
 
+	#load choicestate buttons
+	def __init__(self, *args, **kwargs):
+		super(ChoiceState, self).__init__(*args, **kwargs)
+		for i in range (len(self.choices)):
+			btn = Button(text=str(self.choices[i]),  font_size=18)
+			self.ids.list.add_widget(btn)
+
 	def set_label_text(self):
 		return self.label_text
 	
@@ -36,14 +43,6 @@ class ChoiceState(Screen):
 #custom screenmanager
 class MyScreenManager(ScreenManager):
 	pass
-
-#function to load dynamic choicestate buttons
-class AddChoiceButton(BoxLayout):
-	def __init__(self, *args, **kwargs):
-		super(AddChoiceButton, self).__init__(*args, **kwargs)
-		for i in range (3):
-			btn = Button(text=str(i) +'. ' + 'Option '+ str(i),  font_size=18)
-			self.add_widget(btn)
 
 #function restricts textinput to 160 chars
 class CustomTextInput(TextInput):

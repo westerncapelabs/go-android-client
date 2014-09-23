@@ -100,12 +100,13 @@ BoxLayout:
 				halign: 'center'
 				valign: 'middle'
 
-		AddChoiceButton:
+		BoxLayout:
+			id: list
 			orientation: 'vertical'
 			spacing: '10dp'
 
-			Button:
-				text: '3. Neither'
-				font_size: '18sp'
-	
-				on_release: app.root.ids.sm.current = 'endstate'
+		Button:
+			text: '3. Neither'
+			font_size: '18sp'
+
+			on_release: app.root.ids.sm.current = 'endstate'
