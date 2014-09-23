@@ -1,7 +1,7 @@
-MyScreenManager:
-	FreeTextState:
-	EndState:
-	ChoiceState:
+BoxLayout:
+    orientation: 'vertical'
+	MyScreenManager:
+		id: sm
 
 <FreeTextState>:
 	name: 'freetextstate'
@@ -39,7 +39,7 @@ MyScreenManager:
 				text: 'SEND'
 				font_size: '18sp'
 				size_hint_x: 0.5
-				on_release: app.root.current = 'choicestate'
+				on_release: app.root.ids.sm.current = 'choicestate'
 
 <EndState>:
 	name: 'endstate'
@@ -73,7 +73,7 @@ MyScreenManager:
 				text: 'FINISH'
 				font_size: '18sp'
 				size_hint: 0.5, 0.5
-				on_release: app.root.current = 'freetextstate'
+				on_release: app.root.ids.sm.current = 'freetextstate'
 
 
 <ChoiceState>:
@@ -108,4 +108,4 @@ MyScreenManager:
 				text: '3. Neither'
 				font_size: '18sp'
 	
-				on_release: app.root.current = 'endstate'
+				on_release: app.root.ids.sm.current = 'endstate'
