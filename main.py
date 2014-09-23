@@ -3,7 +3,7 @@ import json
 from kivy.app import App
 from kivy.lang import Builder
 
-from kivy.properties import NumericProperty, StringProperty
+from kivy.properties import NumericProperty, StringProperty, ObjectProperty
 
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
@@ -27,6 +27,7 @@ class EndState(Screen):
 #choicestate screen
 class ChoiceState(Screen):
 	label_text = StringProperty()
+	choices = ObjectProperty()
 
 	def set_label_text(self):
 		return self.label_text
@@ -66,7 +67,7 @@ class AndroidClient(App):
 			if data[i]['type'] == 'FreeText':
 				self.root.ids.sm.add_widget(FreeTextState(label_text=data[i]['question']))
 			elif data[i]['type'] == 'ChoiceState':
-				self.root.ids.sm.add_widget(ChoiceState(label_text=data[i]['question']))
+				self.root.ids.sm.add_widget(ChoiceState(label_text=data[i]['question'], choices=data[i]['choices']))
 			elif data[i]['type'] == 'EndState':
 				self.root.ids.sm.add_widget(EndState(label_text=data[i]['text']))
 
