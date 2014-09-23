@@ -61,6 +61,15 @@ class AndroidClient(App):
 			data = json.load(data_file)
 
 		self.root = Builder.load_file('androidclient.kv')
+
+		for i in range(len(data)):
+			if data[i]['type'] == 'FreeText':
+				self.root.ids.sm.add_widget(FreeTextState(label_text=data[i]['question']))
+			elif data[i]['type'] == 'ChoiceState':
+				self.root.ids.sm.add_widget(ChoiceState(label_text=data[i]['question']))
+			elif data[i]['type'] == 'EndState':
+				self.root.ids.sm.add_widget(EndState(label_text=data[i]['text']))
+
 		return self.root
 
 if __name__ == "__main__":
