@@ -1,3 +1,5 @@
+import json
+
 from kivy.app import App
 from kivy.lang import Builder
 
@@ -50,12 +52,15 @@ class CustomTextInput(TextInput):
 			return
 		super(CustomTextInput, self).insert_text(substring, from_undo)
 
+#main application
 class AndroidClient(App):
     def build(self):
+		#load sample data
+		with open('data/fixtures/example.json') as data_file:
+			data = json.load(data_file)
 
-	root = Builder.load_file('androidclient.kv')
-	root.current = 'freetextstate'
-	return root
+		self.root = Builder.load_file('androidclient.kv')
+		return self.root
 
 if __name__ == "__main__":
 	AndroidClient().run()
