@@ -3,6 +3,8 @@ from kivy.lang import Builder
 
 from kivy.properties import NumericProperty
 
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.textinput import TextInput
 
@@ -30,6 +32,14 @@ class ChoiceState(Screen):
 #custom screenmanager
 class MyScreenManager(ScreenManager):
 	pass
+
+#function to load dynamic choicestate buttons
+class AddChoiceButton(BoxLayout):
+	def __init__(self, *args, **kwargs):
+		super(AddChoiceButton, self).__init__(*args, **kwargs)
+		for i in range (3):
+			btn = Button(text=str(i) +'. ' + 'Option '+ str(i),  font_size=18)
+			self.add_widget(btn)
 
 #function restricts textinput to 160 chars
 class CustomTextInput(TextInput):
