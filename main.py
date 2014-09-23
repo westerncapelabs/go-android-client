@@ -3,32 +3,33 @@ import json
 from kivy.app import App
 from kivy.lang import Builder
 
-from kivy.properties import NumericProperty
+from kivy.properties import NumericProperty, StringProperty
 
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.textinput import TextInput
 
-#define a list of label strings
-label_text = ['What is adf afkj af lj akj falj falfj aflj alfj alfj aflj aflj dfjalfj alfj jalfkj aflj aflkj falfj af your name afd af af fda fadsf adf adf af azf af af af?',
-'Thank you for registering sdja fadskf akdsf adkf adfk adsf jadskf adf adsf adsf adf kadf adf adf adsf adsf ad fads fad fk!',
-'Do you prefer tea or coffee adf  fakf kl fkal jkaflj aklf afd jakdfl jaflj f affkd jadf af dfaljf alfj af?']
-
 #freetextstate screen
 class FreeTextState(Screen):
+	label_text = StringProperty()
+
 	def set_label_text(self):
-		return label_text[0]
+		return self.label_text
 
 #endstate screen
 class EndState(Screen):
+	label_text = StringProperty()
+
 	def set_label_text(self):
-		return label_text[1]
+		return self.label_text
 
 #choicestate screen
 class ChoiceState(Screen):
+	label_text = StringProperty()
+
 	def set_label_text(self):
-		return label_text[2]
+		return self.label_text
 	
 
 #custom screenmanager
