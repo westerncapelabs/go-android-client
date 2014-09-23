@@ -33,12 +33,15 @@ class ChoiceState(Screen):
 	def __init__(self, *args, **kwargs):
 		super(ChoiceState, self).__init__(*args, **kwargs)
 		for i in range (len(self.choices)):
-			btn = Button(text=str(self.choices[i]),  font_size=18)
+			btn = DummyButton(id='btn'+str(i), text=str(self.choices[i]), font_size=18, size_hint_y=0.6)
 			self.ids.list.add_widget(btn)
 
 	def set_label_text(self):
 		return self.label_text
-	
+
+#dummy button class
+class DummyButton(Button):
+	pass
 
 #custom screenmanager
 class MyScreenManager(ScreenManager):
