@@ -22,3 +22,10 @@ class AppTest(unittest.TestCase):
 		a.run()
 
 
+	#test setting screen label
+	def test_set_screen_label_text(self):
+		freetextstate = FreeTextState(label_text='label name')
+		label_name = freetextstate.set_label_text()
+		if not label_name == 'label name':
+			raise Exception("screen label text not set")
+
