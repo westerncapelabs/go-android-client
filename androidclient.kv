@@ -1,0 +1,109 @@
+BoxLayout:
+    orientation: 'vertical'
+	MyScreenManager:
+		id: sm
+
+<FreeTextState>:
+	name: 'freetextstate'
+	BoxLayout:
+		orientation: 'vertical'
+		pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+		size_hint: 1, 0.6
+		spacing: '15dp'
+		padding: '20dp'
+		BoxLayout:
+			orientation: 'horizontal'						
+			padding: '5dp'
+
+			canvas:
+				Color:
+					rgb: .3, .3, .3
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			Label:
+				text: root.set_label_text()
+				text_size: self.size
+				halign: 'center'
+				valign: 'middle'
+		CustomTextInput:
+			font_size: '18sp'
+			padding: '5dp'
+			hint_text: 'Enter text here'
+				
+		AnchorLayout:
+			anchor_x: 'right'
+			anchor_y: 'center'
+			size_hint_y: 0.5		
+			Button:
+				text: 'SEND'
+				font_size: '18sp'
+				size_hint_x: 0.5
+				on_release: app.root.ids.sm.current = 'choicestate'
+
+<EndState>:
+	name: 'endstate'
+	BoxLayout:
+		orientation: 'vertical'
+		padding: '20dp'
+		spacing: 120
+		pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+		size_hint: 1, 0.6
+		BoxLayout:
+			orientation: 'horizontal'
+			padding: '5dp'
+			size_hint_y: 0.5	
+			canvas:
+				Color:
+					rgb: .3, .3, .3
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			Label:
+				text: root.set_label_text()
+				text_size: self.size
+				halign: 'center'
+				valign: 'middle'
+			
+		AnchorLayout:
+			anchor_x: 'right'
+			anchor_y: 'bottom'
+			size_hint_y: 0.5		
+			Button:
+				text: 'FINISH'
+				font_size: '18sp'
+				size_hint: 0.5, 0.5
+				on_release: app.root.ids.sm.current = 'freetextstate'
+
+
+<ChoiceState>:
+	name: 'choicestate'
+	BoxLayout:
+		orientation: 'vertical'
+		pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+		size_hint: 1, 0.6
+		spacing: '15dp'
+		padding: '20dp'
+		BoxLayout:
+			orientation: 'horizontal'
+			padding: '5dp'
+
+			canvas:
+				Color:
+					rgb: .3, .3, .3
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			Label:
+				text: root.set_label_text()
+				text_size: self.size
+				halign: 'center'
+				valign: 'middle'
+
+		BoxLayout:
+			id: list
+			orientation: 'vertical'
+			spacing: '10dp'
+
+<DummyButton>:
+	on_release: app.root.ids.sm.current= 'endstate'
