@@ -1,3 +1,7 @@
+"""
+go-android-client
+"""
+
 import json
 
 from kivy.app import App
