@@ -29,3 +29,10 @@ class AppTest(unittest.TestCase):
 		if not label_name == 'label name':
 			raise Exception("screen label text not set")
 
+
+	#test user data directory
+	def test_user_data_dir(self):
+		a = AndroidClient()
+		data_dir = a.user_data_dir
+		if not os.path.exists(data_dir):
+			raise Exception("user_data_dir didnt exists")
